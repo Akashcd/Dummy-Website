@@ -50,6 +50,38 @@
             padding: 20px;
             margin-top: 40px;
         }
+
+        /* Popup / Toast styles */
+        .toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #323232;
+            color: #fff;
+            text-align: center;
+            border-radius: 4px;
+            padding: 12px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 14px;
+        }
+
+        .toast.show {
+            visibility: visible;
+            animation: fadein 0.3s, fadeout 0.3s 1.7s;
+        }
+
+        @keyframes fadein {
+            from { bottom: 10px; opacity: 0; }
+            to { bottom: 30px; opacity: 1; }
+        }
+
+        @keyframes fadeout {
+            from { bottom: 30px; opacity: 1; }
+            to { bottom: 10px; opacity: 0; }
+        }
     </style>
 </head>
 
@@ -81,14 +113,48 @@
     <p>© 2026 Demo Product</p>
 </footer>
 
+<!-- Toast Popup -->
+<div id="toast" class="toast"></div>
+
 <!-- Event Tracking Scripts -->
 <script>
+    // Show popup
+    function showToast(message) {
+        const toast = document.getElementById("toast");
+        toast.innerText = message;
+        toast.className = "toast show";
+        setTimeout(() => {
+            toast.className = "toast";
+        }, 2000);
+    }
+
     // Signup Button Event
     function trackSignup() {
+        console.log("Signup clicked");
         gtag('event', 'signup_click', {
             event_category: 'engagement',
             event_label: 'signup_button',
             value: 1
         });
-        alert("Signup event sent to Google Analytics")
+        showToast("Signup Click Event Tracked");
+    }
 
+    // Scroll Tracking (75%)
+    let scrollTracked = false;
+    window.addEventListener('scroll', function () {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const pageHeight = document.documentElement.scrollHeight;
+
+        if (!scrollTracked && scrollPosition / pageHeight > 0.75) {
+            gtag('event', 'scroll_75_percent', {
+                event_category: 'engagement',
+                event_label: 'scroll_depth'
+            });
+            showToast("Scroll 75% Event Tracked");
+            scrollTracked = true;
+        }
+    });
+</script>
+
+</body>
+</html>
