@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Product Landing Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Analytics GA4 -->
+    <!-- Replace G-XXXXXXXXXX with your Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        section {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .cta-btn {
+            background: #3498db;
+            color: #fff;
+            padding: 15px 25px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .cta-btn:hover {
+            background: #2980b9;
+        }
+        footer {
+            background: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Demo SaaS Product</h1>
+    <p>A simple landing page for analytics testing</p>
+    <button class="cta-btn" onclick="trackSignup()">Sign Up</button>
+</header>
+
+<section>
+    <h2>Why This Product?</h2>
+    <p>
+        This is a dummy product landing page created to demonstrate
+        Google Analytics implementation, event tracking, and conversion measurement.
+    </p>
+
+    <p>
+        Scroll down to trigger a scroll tracking event. This helps understand
+        how engaged users are with the content.
+    </p>
+</section>
+
+<section style="height: 600px;">
+    <h2>More Inform
