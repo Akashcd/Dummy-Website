@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Demo Product Landing Page</title>
+    <title>Demo SaaS Platform</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Analytics GA4 -->
+    <!-- Google Analytics GA4 (UNCHANGED) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HK7JCTRQDM"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -15,146 +15,100 @@
     </script>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        header {
-            background: #2c3e50;
-            color: #fff;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        section {
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: auto;
-        }
-        .cta-btn {
-            background: #3498db;
-            color: #fff;
-            padding: 15px 25px;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        .cta-btn:hover {
-            background: #2980b9;
-        }
-        footer {
-            background: #f4f4f4;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
+        body { font-family: Arial, sans-serif; margin: 0; line-height: 1.6; }
+        header { background: #2c3e50; color: #fff; padding: 50px; text-align: center; }
+        section { padding: 40px 20px; max-width: 900px; margin: auto; }
+        .cta-btn { background: #3498db; color: #fff; padding: 14px 22px; border: none; cursor: pointer; border-radius: 4px; }
+        .cta-btn:hover { background: #2980b9; }
+        .card { border: 1px solid #ddd; padding: 20px; margin: 15px 0; border-radius: 6px; }
+        footer { background: #f4f4f4; text-align: center; padding: 20px; }
 
-        /* Popup / Toast styles */
         .toast {
             visibility: hidden;
-            min-width: 250px;
-            background-color: #323232;
+            background: #323232;
             color: #fff;
-            text-align: center;
+            padding: 12px 18px;
             border-radius: 4px;
-            padding: 12px;
             position: fixed;
-            z-index: 1000;
             left: 50%;
             bottom: 30px;
             transform: translateX(-50%);
-            font-size: 14px;
+            z-index: 1000;
         }
-
         .toast.show {
             visibility: visible;
-            animation: fadein 0.3s, fadeout 0.3s 1.7s;
+            animation: fadein 0.3s, fadeout 0.3s 2s;
         }
-
-        @keyframes fadein {
-            from { bottom: 10px; opacity: 0; }
-            to { bottom: 30px; opacity: 1; }
-        }
-
-        @keyframes fadeout {
-            from { bottom: 30px; opacity: 1; }
-            to { bottom: 10px; opacity: 0; }
-        }
+        @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeout { from { opacity: 1; } to { opacity: 0; } }
     </style>
 </head>
 
 <body>
 
 <header>
-    <h1>Demo SaaS Product</h1>
-    <p>A simple landing page for analytics testing</p>
-    <button class="cta-btn" onclick="trackSignup()">Sign Up</button>
+    <h1>Demo SaaS Platform</h1>
+    <p>Analytics • Attribution • Conversion Tracking</p>
+    <button class="cta-btn" onclick="trackSignup()">Start Free Trial</button>
 </header>
 
 <section>
-    <h2>Why This Product?</h2>
-    <p>
-        This is a dummy product landing page created to demonstrate
-        Google Analytics implementation, event tracking, and conversion measurement.
-    </p>
-    <p>
-        Scroll down to trigger a scroll tracking event.
-    </p>
+    <h2>Features</h2>
+    <div class="card">📊 Advanced Analytics</div>
+    <div class="card">🎯 Conversion Tracking</div>
+    <div class="card">🔗 Attribution Reporting</div>
+</section>
+
+<section id="pricing">
+    <h2>Pricing Plans</h2>
+    <div class="card">
+        <h3>Starter – ₹0</h3>
+        <p>Basic analytics & tracking</p>
+        <button class="cta-btn" onclick="viewPricing()">View Pricing</button>
+        <button class="cta-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
 </section>
 
 <section style="height: 600px;">
-    <h2>More Information</h2>
-    <p>Extra content to enable scroll tracking.</p>
+    <h2>Why Choose Us?</h2>
+    <p>Scroll to simulate engagement tracking.</p>
 </section>
 
 <footer>
-    <p>© 2026 Demo Product</p>
+    <button class="cta-btn" onclick="purchase()">Complete Purchase</button>
+    <p>© 2026 Demo SaaS</p>
 </footer>
 
-<!-- Toast Popup -->
 <div id="toast" class="toast"></div>
 
-<!-- Event Tracking Scripts -->
 <script>
-    // Show popup
-    function showToast(message) {
+    function showToast(msg) {
         const toast = document.getElementById("toast");
-        toast.innerText = message;
+        toast.innerText = msg;
         toast.className = "toast show";
-        setTimeout(() => {
-            toast.className = "toast";
-        }, 2000);
+        setTimeout(() => toast.className = "toast", 2300);
     }
 
-    // Signup Button Event
     function trackSignup() {
-        console.log("Signup clicked");
         gtag('event', 'signup_click', {
-            event_category: 'engagement',
-            event_label: 'signup_button',
-            value: 1
+            event_category: 'engagement'
         });
-        showToast("Signup Click Event Tracked");
+        showToast("Signup Event Tracked");
     }
 
-    // Scroll Tracking (75%)
-    let scrollTracked = false;
-    window.addEventListener('scroll', function () {
-        const scrollPosition = window.scrollY + window.innerHeight;
-        const pageHeight = document.documentElement.scrollHeight;
+    function viewPricing() {
+        gtag('event', 'view_pricing');
+        showToast("Pricing Viewed");
+    }
 
-        if (!scrollTracked && scrollPosition / pageHeight > 0.75) {
-            gtag('event', 'scroll_75_percent', {
-                event_category: 'engagement',
-                event_label: 'scroll_depth'
-            });
-            showToast("Scroll 75% Event Tracked");
-            scrollTracked = true;
-        }
-    });
-</script>
-
-</body>
-</html>
+    function addToCart() {
+        gtag('event', 'add_to_cart', {
+            currency: "INR",
+            value: 0,
+            items: [{
+                item_name: "Demo SaaS Plan",
+                item_category: "Subscription"
+            }]
+        });
+        showToast("Added to Cart");
+    }
