@@ -1,8 +1,18 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get A Lower Rate</title>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
 
     <style>
         * {
@@ -17,7 +27,7 @@
         }
 
         .hero-section {
-            background-color: rgb(243, 244, 244);
+            background-color: #f3f4f4;
             padding: 40px 20px;
         }
 
@@ -30,23 +40,15 @@
         .hero-title {
             font-size: 54px;
             margin-bottom: 30px;
-            padding: 0 20px;
         }
 
         .hero-image {
             max-width: 700px;
-            height: auto;
             width: 100%;
         }
 
         .age-section {
-            background-color: white;
             padding: 40px 20px;
-        }
-
-        .age-content {
-            max-width: 1200px;
-            margin: 0 auto;
             text-align: center;
         }
 
@@ -68,109 +70,139 @@
         }
 
         .age-link {
-            background-color: rgb(47, 158, 233);
-            color: white;
+            background-color: #2f9ee9;
+            color: #fff;
             text-decoration: none;
             padding: 35px 30px;
-            border-radius: 5px;
-            font-size:1.5rem;
-            transition: background-color 0.3s;
+            border-radius: 6px;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         .age-link:hover {
-            background-color: rgb(38, 127, 187);
+            background-color: #267fbb;
         }
 
-        .footer-text {
-            font-size: 12px;
-            color: #666;
-            max-width: 800px;
-            margin: 0 auto 20px;
-            text-align: justify;
+        /* ---------- POPUP STYLES ---------- */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
         }
 
-        .footer-links {
+        .popup {
+            background: #fff;
+            padding: 30px 25px;
+            border-radius: 10px;
             text-align: center;
+            max-width: 320px;
+            width: 90%;
         }
 
-        .footer-links a {
-            color: rgb(47, 158, 233);
-            text-decoration: none;
-            margin: 0 10px;
+        .popup h3 {
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .popup p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .spinner {
+            margin: 15px auto 0;
+            width: 30px;
+            height: 30px;
+            border: 4px solid #ddd;
+            border-top: 4px solid #2f9ee9;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         @media (max-width: 768px) {
-            .hero-section{
-                padding: 10px 20px;
-            }
-
-            .age-section {
-                background-color: white;
-                padding: 10px 10px;
-            }
-            .save-text{
-                font-size: 25px;
-            }
-            .hero-title {
-                font-size: 28px;
-                padding: 0px;
-            }
-
-            .age-title {
-                font-size: 25px;
-            }
-
-            .age-links {
-                flex-wrap: wrap;
-            }
-
-            .age-link {
-                margin: 0 auto;
-                padding: 24px 30px
-            }
+            .hero-title { font-size: 28px; }
+            .save-text, .age-title { font-size: 25px; }
+            .age-link { padding: 24px 30px; }
         }
     </style>
-
 </head>
 
 <body>
-    <section class="hero-section">
-        <div class="hero-content">
-            <p class="hero-title">My Insurance Went From <strong>$179 to $59</strong> Thanks To This Website!</p>
-            <img src="images/auto.jpg" alt="Insurance Savings" class="hero-image">
-        </div>
-    </section>
 
-    <section class="age-section">
-        <div class="age-content">
-            <p class="save-text">See How Much You Can Save!</p>
-            <h2 class="age-title"><strong>What's Your Age Range?</strong></h2>
-            <div class="age-links">
-                <a href="https://jtqfa.ttrk.io/click" class="age-link">18 to 34</a>
-                <a href="https://jtqfa.ttrk.io/click" class="age-link">35 to 44</a>
-                <a href="https://jtqfa.ttrk.io/click" class="age-link">45 to 54</a>
-                <a href="https://jtqfa.ttrk.io/click" class="age-link">55 to 69</a>
-                <a href="https://jtqfa.ttrk.io/click" class="age-link">70+</a>
-            </div>
-            <div class="footer-text">
-                <p>This site is not a part of the Facebook website or Facebook Inc. This site is not endorsed by
-                    Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
-                <br>
-                <p>This page is an advertorial and is not a consumer protection update. The story told here is for
-                    demonstration purposes only and results may vary. Our intention is to provide an online resource
-                    that is both informative and helpful. We are not affiliated with any news source. The website and
-                    the company that owns it is not responsible for any typographical or photographic errors. All
-                    trademarks, logos, and service marks displayed are registered or unregistered trademarks of their
-                    respective owners. Clarification of headlines referencing "new rules." A "rule" is defined as a
-                    "piece of advice about the best way to do something" by Merriam-Webster's Dictionary. Contents of
-                    the site are copyrighted and property of the review or this site. Receiving multiple quotes from
-                    comparison sites can give you access to the most competitive rates in your local area.</p>
-            </div>
-            <div class="footer-links">
-                <a href="privacy.html">Privacy</a>
-                <a href="terms.html">Terms</a>
-            </div>
-        </div>
-    </section>
+<section class="hero-section">
+    <div class="hero-content">
+        <p class="hero-title">
+            My Insurance Went From <strong>$179 to $59</strong> Thanks To This Website!
+        </p>
+        <img src="images/auto.jpg" alt="Insurance Savings" class="hero-image">
+    </div>
+</section>
 
-</body></html>
+<section class="age-section">
+    <p class="save-text">See How Much You Can Save!</p>
+    <h2 class="age-title"><strong>What's Your Age Range?</strong></h2>
+
+    <div class="age-links">
+        <a href="https://jtqfa.ttrk.io/click" class="age-link" data-age="18-34">18 to 34</a>
+        <a href="https://jtqfa.ttrk.io/click" class="age-link" data-age="35-44">35 to 44</a>
+        <a href="https://jtqfa.ttrk.io/click" class="age-link" data-age="45-54">45 to 54</a>
+        <a href="https://jtqfa.ttrk.io/click" class="age-link" data-age="55-69">55 to 69</a>
+        <a href="https://jtqfa.ttrk.io/click" class="age-link" data-age="70+">70+</a>
+    </div>
+</section>
+
+<!-- POPUP -->
+<div class="popup-overlay" id="popup">
+    <div class="popup">
+        <h3 id="popupTitle">Checking Rates…</h3>
+        <p>Please wait while we find the best deal for you</p>
+        <div class="spinner"></div>
+    </div>
+</div>
+
+<script>
+    const popup = document.getElementById('popup');
+    const popupTitle = document.getElementById('popupTitle');
+
+    document.querySelectorAll('.age-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const ageRange = this.dataset.age;
+            const targetUrl = this.href;
+
+            // Update popup text
+            popupTitle.innerText = `Checking best rates for age ${ageRange}`;
+
+            // Show popup
+            popup.style.display = 'flex';
+
+            // GA4 event
+            gtag('event', 'age_range_click', {
+                event_category: 'engagement',
+                event_label: ageRange,
+                age_range: ageRange,
+                page_location: window.location.href,
+                transport_type: 'beacon'
+            });
+
+            // Redirect after delay
+            setTimeout(() => {
+                window.location.href = targetUrl;
+            }, 1500);
+        });
+    });
+</script>
+
+</body>
+</html>
+
