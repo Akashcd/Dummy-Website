@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -160,51 +161,33 @@
     </div>
 </section>
 
-<!-- POPUP -->
-<div class="popup-overlay" id="popup">
-    <div class="popup">
-        <h3 id="popupTitle">Checking Rates…</h3>
-        <p>Please wait while we find the best deal for you</p>
-        <div class="spinner"></div>
-    </div>
-</div>
 
 <script>
-    const popup = document.getElementById('popup');
-    const popupTitle = document.getElementById('popupTitle');
+document.querySelectorAll('.age-link').forEach(function(link) {
 
-    document.querySelectorAll('.age-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
+  link.addEventListener('click', function(e) {
 
-            const ageRange = this.dataset.age;
-            const targetUrl = this.href;
+    e.preventDefault(); // stop instant redirect
 
-            // Update popup text
-            popupTitle.innerText = `Checking best rates for age ${ageRange}`;
+    var ageValue = this.getAttribute("data-age");
+    var targetUrl = this.href;
 
-            // Show popup
-            popup.style.display = 'flex';
-
-            // GA4 event
-            gtag('event', 'age_range_click', {
-                event_category: 'engagement',
-                event_label: ageRange,
-                age_range: ageRange,
-                page_location: window.location.href,
-                transport_type: 'beacon'
-            });
-
-            // Redirect after delay
-            setTimeout(() => {
-                window.location.href = targetUrl;
-            }, 1500);
-        });
+    gtag('event', 'age_click', {
+      age_range: ageValue,
+      outbound: targetUrl
     });
+
+    // small delay so GA4 can capture the event
+    setTimeout(function() {
+      window.location.href = targetUrl;
+    }, 150);
+
+  });
+
+});
 </script>
+
+
 
 </body>
 </html>
-
-
-
